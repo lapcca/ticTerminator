@@ -1,3 +1,118 @@
+import { VerticalBox, LineEdit, StandardTableView, HorizontalBox, StandardListView } from "std-widgets.slint";
 export component MainWindow inherits Window {
-Text {text: "hello world!";}
+ title: "TicTerminator";
+
+ // property
+ in-out property <[StandardListViewItem]> types <=> tags.model;
+ in-out property <string> searcy-pattern;
+
+ //callback
+  callback open_file();
+
+  //menu
+  ContextMenuArea {
+  Menu {
+              MenuItem {
+                  title: @tr("Open File");
+                  activated => { open_file(); }
+              }
+          }
+   }
+
+  //main layout
+  VerticalLayout {
+  Rectangle {
+  height: 10%;
+   HorizontalBox {
+               alignment: space-around;
+               Text {
+               font-family: "Comic Sans MS";
+               horizontal-alignment: center;
+               vertical-alignment: center;
+               font-size: 14px;
+               text: "searcy pattern:";
+               }
+               LineEdit {
+                 placeholder-text: "Please input your searcy pattern";
+                 text <=> root.searcy-pattern;
+
+                 }
+               }
+   }
+   Rectangle {
+   height: 90%;
+   HorizontalLayout {
+    alignment: stretch;
+    padding-left: 0px;
+    height: 100%;
+    tags:=StandardListView {
+    preferred-width:150px;
+    min-width: 30px;
+    width: 20%;
+
+    }
+    StandardTableView {
+    width: 80%;
+    rows: [
+        [
+            { text: "Item 1" }, { text: "Item 2" },
+        ],
+        [
+            { text: "Item 2" }, { text: "Item 2" },
+        ],
+        [
+            { text: "Item 3" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 4" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 5" }, { text: "Item 2" },
+        ],
+        [
+           { text: "Item 6" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 7" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 8" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 9" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 10" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 11" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 12" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 13" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 14" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 15" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 16" }, { text: "Item 2" },
+        ],
+        [
+        { text: "Item 17" }, { text: "Item 2" },
+        ],
+        [
+           { text: "Item 18" }, { text: "Item 2" },
+        ]
+    ];
+    }
+   }
+   }
+
+  }
 }
+
