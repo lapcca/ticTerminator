@@ -1,14 +1,16 @@
 import { VerticalBox, LineEdit, StandardTableView, HorizontalBox, StandardListView } from "std-widgets.slint";
+
 export component MainWindow inherits Window {
  title: "TicTerminator";
 
  // property
  in-out property <[StandardListViewItem]> types <=> tags.model;
  in-out property <string> searcy-pattern;
+ in-out property <string> path;
 
  //callback
   callback open_file();
-
+  
   //menu
   ContextMenuArea {
   Menu {
@@ -21,6 +23,7 @@ export component MainWindow inherits Window {
 
   //main layout
   VerticalLayout {
+  Text {text:root.path;}
   Rectangle {
   height: 10%;
    HorizontalBox {
