@@ -1,0 +1,24 @@
+import { VerticalBox, LineEdit, StandardTableView, HorizontalBox, StandardListView,StandardButton, Button, TextEdit } from "std-widgets.slint";
+
+
+
+export component OpenDialog inherits Dialog {
+    title: "Open File";
+    in-out property <string> path;
+    callback select_file();
+    Rectangle {
+    HorizontalLayout {Text {text:"Path/URL";}
+    LineEdit {
+        text <=> path;
+        placeholder-text: "place your url/folder path";
+    }
+    Button {
+        text: "...";
+        clicked => {select_file();}}
+        }
+    }
+
+    StandardButton {kind:ok;}
+    StandardButton {kind:cancel;}
+
+}

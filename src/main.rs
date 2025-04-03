@@ -41,7 +41,7 @@ fn main() -> Result<(), slint::PlatformError> {
             let open_ui_ptr = open_ui_weak_ptr_clone1.upgrade().unwrap();
             let _=open_ui_ptr.hide();
         });
-       let _ = open_ui.run();
+        let _ = open_ui.run();
 
     });
     ui.run()
